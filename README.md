@@ -2,6 +2,8 @@
 
 A React product management app with authentication and full CRUD operations. Users can sign in, browse a paginated product catalog, search items, and view, add, edit, or delete products. Data is fetched from the [DummyJSON](https://dummyjson.com) public API.
 
+**Live demo:** [https://react-redux-eta-six.vercel.app/](https://react-redux-eta-six.vercel.app/)
+
 ## Features
 
 - **Authentication** — Login and registration with JWT tokens (access + refresh), persisted in local storage
