@@ -109,7 +109,7 @@ export default function RegisterForm({
             Register a new user using the dummyjson users API.
           </CardDescription>
           {successMessage && (
-            <div className="mt-2 rounded-md bg-green-50 p-3 text-sm text-green-800 dark:bg-green-950 dark:text-green-200">
+            <div className="mt-2 rounded-md bg-primary/10 p-3 text-sm text-primary">
               ✓ {successMessage}
             </div>
           )}
@@ -199,7 +199,7 @@ export default function RegisterForm({
 
               {(error || localError) && (
                 <Field className="sm:col-span-2">
-                  <div className="rounded-md bg-red-50 p-3 text-sm text-red-800 dark:bg-red-950 dark:text-red-200">
+                  <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
                     ✗ {error || localError}
                   </div>
                 </Field>
@@ -221,24 +221,24 @@ export default function RegisterForm({
         </CardContent>
       </Card>
 
-      <Card className="border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950">
+      <Card className="border-primary/20 bg-primary/10">
         <CardHeader className="pb-3">
           <CardTitle className="text-sm">Register with dummyjson</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-xs">
           <div>
             <span className="font-mono font-medium">API:</span>{" "}
-            <span className="font-mono text-blue-700 dark:text-blue-300">
+            <span className="font-mono text-primary">
               POST https://dummyjson.com/users/add
             </span>
           </div>
           <div>
             <span className="font-mono font-medium">Required:</span>{" "}
-            <span className="font-mono text-blue-700 dark:text-blue-300">
+            <span className="font-mono text-primary">
               firstName, lastName, username, email, password, age
             </span>
           </div>
-          <p className="pt-2 text-blue-700 dark:text-blue-300">
+          <p className="pt-2 text-primary">
             On success the API returns the created user object.
           </p>
         </CardContent>

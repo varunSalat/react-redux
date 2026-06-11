@@ -69,14 +69,14 @@ const ProductListPage = () => {
     <div className="space-y-6">
       <div
         ref={topRef}
-        className="scroll-mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+        className="scroll-mt-6 rounded-3xl border border-border bg-card p-6 shadow-sm"
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-medium tracking-[0.24em] text-slate-500 uppercase">
+            <p className="text-sm font-medium tracking-[0.24em] text-muted-foreground uppercase">
               Product list
             </p>
-            <h1 className="text-3xl font-semibold tracking-tight text-slate-900">
+            <h1 className="text-3xl font-semibold tracking-tight text-foreground">
               Explore store products
             </h1>
             {loading && items.length === 0 ? (
@@ -84,14 +84,14 @@ const ProductListPage = () => {
             ) : (
               <>
                 {!loading && total > 0 && (
-                  <p className="mt-1 text-sm text-slate-500">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     {searchQuery
                       ? `Showing ${rangeStart}-${rangeEnd} of ${total} results for "${searchQuery}"`
                       : `Showing ${rangeStart}-${rangeEnd} of ${total} products`}
                   </p>
                 )}
                 {!loading && total === 0 && searchQuery && (
-                  <p className="mt-1 text-sm text-slate-500">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     No results for "{searchQuery}"
                   </p>
                 )}
@@ -118,33 +118,33 @@ const ProductListPage = () => {
 
       {!loading && (
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl border border-indigo-100 bg-indigo-50 p-5 shadow-sm">
-            <p className="text-sm font-medium text-indigo-700">Total records</p>
-            <p className="mt-1 text-3xl font-semibold text-indigo-950">
+          <div className="rounded-2xl border border-primary/20 bg-primary/10 p-5 shadow-sm">
+            <p className="text-sm font-medium text-primary">Total records</p>
+            <p className="mt-1 text-3xl font-semibold text-foreground">
               {total.toLocaleString()}
             </p>
-            <p className="mt-1 text-xs text-indigo-600">
+            <p className="mt-1 text-xs text-primary/80">
               {searchQuery
                 ? `Matching "${searchQuery}"`
                 : "All products in catalog"}
             </p>
           </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-            <p className="text-sm font-medium text-slate-500">Current page</p>
-            <p className="mt-1 text-3xl font-semibold text-slate-900">
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+            <p className="text-sm font-medium text-muted-foreground">Current page</p>
+            <p className="mt-1 text-3xl font-semibold text-foreground">
               {currentPage}
-              <span className="text-lg text-slate-400"> / {totalPages}</span>
+              <span className="text-lg text-muted-foreground"> / {totalPages}</span>
             </p>
-            <p className="mt-1 text-xs text-slate-500">
+            <p className="mt-1 text-xs text-muted-foreground">
               {limit} records per page
             </p>
           </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-            <p className="text-sm font-medium text-slate-500">Showing now</p>
-            <p className="mt-1 text-3xl font-semibold text-slate-900">
+          <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+            <p className="text-sm font-medium text-muted-foreground">Showing now</p>
+            <p className="mt-1 text-3xl font-semibold text-foreground">
               {items.length}
             </p>
-            <p className="mt-1 text-xs text-slate-500">
+            <p className="mt-1 text-xs text-muted-foreground">
               {total > 0
                 ? `Records ${rangeStart}-${rangeEnd} of ${total}`
                 : "No records on this page"}
@@ -162,8 +162,8 @@ const ProductListPage = () => {
       )}
 
       {total > limit && (
-        <div className="flex flex-col items-center justify-between gap-3 rounded-3xl border border-slate-200 bg-white px-6 py-4 shadow-sm sm:flex-row">
-          <p className="text-sm text-slate-500">
+        <div className="flex flex-col items-center justify-between gap-3 rounded-3xl border border-border bg-card px-6 py-4 shadow-sm sm:flex-row">
+          <p className="text-sm text-muted-foreground">
             Page {currentPage} of {totalPages}
           </p>
           <div className="flex items-center gap-2">

@@ -24,8 +24,8 @@ const ProductListPanel = ({ page, pageSize }: ProductListPanelProps) => {
 
   if (error) {
     return (
-      <div className="rounded-3xl border border-red-200 bg-white p-10 text-center shadow-sm">
-        <p className="text-red-600">{error}</p>
+      <div className="rounded-3xl border border-destructive/30 bg-card p-10 text-center shadow-sm">
+        <p className="text-destructive">{error}</p>
         <Button className="mt-4" variant="outline" onClick={retry}>
           Try again
         </Button>
@@ -35,7 +35,7 @@ const ProductListPanel = ({ page, pageSize }: ProductListPanelProps) => {
 
   if (items.length === 0) {
     return (
-      <div className="rounded-3xl border border-slate-200 bg-white p-10 text-center text-slate-600 shadow-sm">
+      <div className="rounded-3xl border border-border bg-card p-10 text-center text-muted-foreground shadow-sm">
         {searchQuery
           ? `No products match "${searchQuery}".`
           : "No products found."}
@@ -44,10 +44,10 @@ const ProductListPanel = ({ page, pageSize }: ProductListPanelProps) => {
   }
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+    <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
       <div className="overflow-x-auto">
         <table className="w-full min-w-[720px] text-left text-sm">
-          <thead className="border-b border-slate-200 bg-slate-50 text-slate-600">
+          <thead className="border-b border-border bg-muted text-muted-foreground">
             <tr>
               <th className="px-4 py-3 font-medium">Product</th>
               <th className="px-4 py-3 font-medium">Brand</th>
@@ -58,45 +58,45 @@ const ProductListPanel = ({ page, pageSize }: ProductListPanelProps) => {
               <th className="px-4 py-3 font-medium text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100">
+          <tbody className="divide-y divide-border">
             {items.map((product) => (
-              <tr key={product.id} className="hover:bg-slate-50">
+              <tr key={product.id} className="hover:bg-muted">
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-3">
                     <img
                       src={product.thumbnail}
                       alt={product.title}
-                      className="size-10 rounded-md object-cover ring-1 ring-slate-200"
+                      className="size-10 rounded-md object-cover ring-1 ring-border"
                       loading="lazy"
                     />
                     <div>
-                      <p className="font-medium text-slate-900">
+                      <p className="font-medium text-foreground">
                         {product.title}
                       </p>
-                      <p className="line-clamp-1 max-w-xs text-xs text-slate-500">
+                      <p className="line-clamp-1 max-w-xs text-xs text-muted-foreground">
                         {product.description}
                       </p>
                     </div>
                   </div>
                 </td>
-                <td className="px-4 py-3 capitalize text-slate-700">
+                <td className="px-4 py-3 capitalize text-foreground">
                   {product.brand}
                 </td>
-                <td className="px-4 py-3 capitalize text-slate-700">
+                <td className="px-4 py-3 capitalize text-foreground">
                   {product.category}
                 </td>
-                <td className="px-4 py-3 font-medium text-slate-900">
+                <td className="px-4 py-3 font-medium text-foreground">
                   ${(product.price ?? 0).toFixed(2)}
                   {(product.discountPercentage ?? 0) > 0 && (
-                    <span className="ml-1 text-xs text-emerald-600">
+                    <span className="ml-1 text-xs text-primary">
                       -{(product.discountPercentage ?? 0).toFixed(0)}%
                     </span>
                   )}
                 </td>
-                <td className="px-4 py-3 text-slate-700">
+                <td className="px-4 py-3 text-foreground">
                   {(product.rating ?? 0).toFixed(1)}
                 </td>
-                <td className="px-4 py-3 text-slate-700">
+                <td className="px-4 py-3 text-foreground">
                   {product.stock ?? 0}
                 </td>
                 <td className="px-4 py-3 text-right">

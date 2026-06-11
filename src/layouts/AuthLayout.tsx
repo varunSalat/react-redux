@@ -1,9 +1,19 @@
-import { useEffect } from "react"
+import { useEffect, type ReactNode } from "react"
 import { Navigate, Outlet } from "react-router"
+import { ModeToggle } from "@/components/mode-toggle"
 import { Skeleton } from "@/components/ui/skeleton"
 import { getAccessToken } from "@/lib/storage"
 import { useAppDispatch, useAppSelector } from "@/store/hooks"
 import { fetchCurrentUser } from "@/store/slices/authSlice"
+
+const AuthShell = ({ children }: { children: ReactNode }) => (
+  <div className="relative min-h-screen bg-muted">
+    <div className="absolute top-4 right-4 z-10">
+      <ModeToggle />
+    </div>
+    {children}
+  </div>
+)
 
 const AuthLayout = () => {
   const dispatch = useAppDispatch()
@@ -19,14 +29,16 @@ const AuthLayout = () => {
 
   if (authInitializing) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gray-50 p-6">
-        <div className="w-full max-w-md space-y-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-          <Skeleton className="h-6 w-40" />
-          <Skeleton className="h-10 w-full" />
-          <Skeleton className="h-10 w-full" />
-          <Skeleton className="h-10 w-full" />
+      <AuthShell>
+        <div className="flex min-h-screen items-center justify-center p-6">
+          <div className="w-full max-w-md space-y-4 rounded-xl border border-border bg-card p-6 shadow-sm">
+            <Skeleton className="h-6 w-40" />
+            <Skeleton className="h-10 w-full" />
+            <Skeleton className="h-10 w-full" />
+            <Skeleton className="h-10 w-full" />
+          </div>
         </div>
-      </div>
+      </AuthShell>
     )
   }
 
@@ -34,7 +46,11 @@ const AuthLayout = () => {
     return <Navigate to="/products" replace />
   }
 
-  return <Outlet />
+  return (
+    <AuthShell>
+      <Outlet />
+    </AuthShell>
+  )
 }
 
 export default AuthLayout

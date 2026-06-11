@@ -15,7 +15,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <ThemeProvider>
+        <ThemeProvider defaultTheme="light">
           <App />
           <Toaster />
         </ThemeProvider>

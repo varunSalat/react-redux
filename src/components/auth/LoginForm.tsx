@@ -76,7 +76,7 @@ export default function LoginForm({
             Enter your username and password below to login
           </CardDescription>
           {isAuthenticated && (
-            <div className="mt-2 rounded-md bg-green-50 p-3 text-sm text-green-800 dark:bg-green-950 dark:text-green-200">
+            <div className="mt-2 rounded-md bg-primary/10 p-3 text-sm text-primary">
               ✓ Login successful!
             </div>
           )}
@@ -125,7 +125,7 @@ export default function LoginForm({
               </Field>
 
               {(error || localError) && (
-                <div className="rounded-md bg-red-50 p-3 text-sm text-red-800 dark:bg-red-950 dark:text-red-200">
+                <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
                   ✗ {error || localError}
                 </div>
               )}
@@ -147,24 +147,24 @@ export default function LoginForm({
       </Card>
 
       {/* Demo credentials info */}
-      <Card className="border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950">
+      <Card className="border-primary/20 bg-primary/10">
         <CardHeader className="pb-3">
           <CardTitle className="text-sm">Demo Credentials</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-xs">
           <div>
             <span className="font-mono font-medium">Username:</span>{" "}
-            <span className="font-mono text-blue-700 dark:text-blue-300">
+            <span className="font-mono text-primary">
               emilys
             </span>
           </div>
           <div>
             <span className="font-mono font-medium">Password:</span>{" "}
-            <span className="font-mono text-blue-700 dark:text-blue-300">
+            <span className="font-mono text-primary">
               emilyspass
             </span>
           </div>
-          <p className="pt-2 text-blue-700 dark:text-blue-300">
+          <p className="pt-2 text-primary">
             Using dummyjson.com authentication API
           </p>
         </CardContent>
